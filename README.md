@@ -101,9 +101,61 @@ Angular 17
 
     Angular Data Binding
 
-        Data binding is the machanisim of accessing the methoda nd fields of a component class
+        Data binding is the machanisim of accessing the methoda and fields of a component class
         in the component template.
 
         Interpolation
+
+            is to embed an expression intot he html-dom
+
+            <tag-name> {{expression}} </tag-name>
+
+            <p> Hello {{userName}} ! How Are You? </p>
+            <p> Sum of {{n1}} and {{n2}} is {{n1+n2}} </p>
+
         Two-Way Data Binding
+
+            is to bind a feidl with a form input element.
+
+            The value of the field is copied to the input-element for the first time.
+            And every time the input element is edited, the field gets updated.
+
+            Two-way data bindign can not be doen on any html attribute. Instead we 
+            use 'ngModel' - a inbuilt attribute directive from 'FormsModule' from '@angular/forms'
+
+            <input [(ngModel)]="field" />
+
         One-Way Data Binding
+
+            Attribute Binding
+                is to bind a value of a field to a html attribute.
+
+                <tag-name [attribute]="field"> content </tag-name>
+
+                <p title="a sample hint"> This is a test paara </p>
+
+                <p [title]="hint"> This is a test paara </p>
+
+            Event Binding
+                is to map a method to an event, so that the mehtod is invoked when that event occurs.
+
+                <tag-name (eventDirective)="method()"> content </tag-name>
+
+                html-event-attribute            event-directive
+                ---------------------------------------------------------------------
+                onClick                         click
+                onDblClick                      dblclick
+                onMouseOver                     mouseover
+                onMosueLeave                    mouseleave
+                onKeyUp                         keyup
+                onKeyDown                       keydown
+                onChange                        change
+                onFocus                         focus
+                onBlur                          blur
+                onSubmit                        ngSubmit, submit
+
+                <button (click)="method()" type="button"> CLICK ME </button>
+
+
+
+            Style Binding
