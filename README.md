@@ -156,6 +156,111 @@ Angular 17
 
                 <button (click)="method()" type="button"> CLICK ME </button>
 
-
-
             Style Binding
+
+                is used to control the style of an element programatically.
+
+                Using 'style' attribute
+
+                    <element [style.cssProperty]="field" > content </element> 
+
+                    <p [style.backgroundColor]="myBgColor" > a test para </p>
+
+    
+                Using 'ngStyle' attribute Directive
+
+                    the field being boudn must be a json object having keys as cssPropertyName and
+                    values as value literals or other variable.
+
+                    <element [ngStyle]="field" > content </element> 
+
+                    let myStyle = {backgroundColor:myBgColor;width:10%;color:reverse(myBgColor)};
+
+                    <p [ngStyle]="myStyle" > a test para </p>
+
+                Using class attribute
+
+                    use a boolean field to apply or remove a class on an element
+
+                    <element [class.className1]="field1" [class.className2]="field2" > content </element> 
+
+                Using ngClass attribute directive with an array of css class names
+
+                    <element [ngClass]="anArray" > content </element> 
+
+                Using ngClass attribute directive with an json object of css class names as keys and boolean values
+
+                    <element [ngClass]="jsonObject" > content </element> 
+
+    Angular Flow Controls
+
+        @if( booleanAngularExpression ){
+            <p> This para appears if the given expression evaluates to true. </p>
+        }             
+
+        @if( booleanAngularExpression ){
+            <p> This para appears if the given expression evaluates to true. </p>
+        } @else {
+            <p> This para appears if the given expression evaluates to false. </p>
+        }
+
+        @if( booleanAngularExpression1 ){
+            <p> This para appears if the given expression1 evaluates to true. </p>
+        } @else if( booleanAngularExpression2 ) {
+            <p> This para appears if the given expression2 evaluates to true. </p>
+        } @else {
+            <p> This para appears if none of the expressions evaluates to true. </p>
+        }
+
+        @for(n of numsArray; track $index) {
+            <p> this para is repeated once for each {{n}} in the array. </p>
+            <p> track taeks an expression that can give a unique value for each iteration </p>
+            <p> $count is an built-in variable to give no of iterations so far </p>
+            <p> $index is an built-in variable to give index of iteration</p>
+            <p> $first is an built-in variable to give true for the first iteration </p>
+            <p> $last is an built-in variable to give true for the last iteration </p>
+            <p> $even is an built-in variable to give true for all even iterations </p>
+            <p> $odd is an built-in variable to give true for all odd iterations </p>
+        } @empty {
+            <p> this para appers if the given array is empty. </p>
+        }
+
+        @switch(expression) {
+            @case (value1) {
+                <p> This para appears if the expression evaluates to value1 </p>
+            }
+            @case (value2) {
+                <p> This para appears if the expression evaluates to value2 </p>
+            }
+            @case (value3) {
+                <p> This para appears if the expression evaluates to value3 </p>
+            }
+            @default {
+                <p> This para appears if the expression evaluates to none of the given values </p>
+            }
+        }
+
+    Angular Routing
+
+        Allows us to navigate from one component to another.
+
+        Routing is controlled through RouterModule.
+
+        RouterModule offers
+
+        Routes                  Route[]
+
+        Route                   { path:'', pathMatch:'startsWith|full', component: Component, redirectTo:'', children:[] }
+
+        RouterOutlet            is a built-in component that acts as a place holder for the resultant component of routing.
+
+        RouterLink              is a built-in attribute directive used to hold the target path for a 'a' element instead of its 'href'.
+
+        RouterLinkActive        is a built-in attribute directive used to hold a css class to be applied on to the active 'a' element.
+        
+        Router                  is a built-in service and offers two method for programatic navigation.
+                                navigate(["/sales","/dashboard"]);
+                                navigateByUrl("/sales/dashboard");
+
+        ActivatedRoute          is a built-in service sued to extract info like query params, path params ..etc., from the current path.
+        
