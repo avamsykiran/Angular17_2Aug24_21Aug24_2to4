@@ -1,0 +1,17 @@
+.welcomeBox{
+    background-color: #ffffff;
+    border:1px solid #000000;
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.centered{
+    display: block;
+    margin: auto;
+}
+
+.bordered{
+    border:2px solid #000000;
+    border-radius: 15px;
+}

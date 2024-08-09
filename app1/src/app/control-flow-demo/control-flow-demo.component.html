@@ -1,0 +1,28 @@
+<section class="cfdBox">
+    <h3>My Friends</h3>
+
+    <!--
+    <ol>
+        @for (f of friends; track $index;let i = $index) {
+            <li>{{f}}  <button type="button" (click)="remove(i)">DEL</button> </li>
+        }@empty {
+            <li>No Friends As Of Now</li>
+        }
+    </ol>
+    -->
+
+    @if(friends && friends.length>0){
+        <ol>
+            @for (f of friends; track $index;let i = $index) {
+                <li>{{f}}  <button type="button" (click)="remove(i)">DEL</button> </li>
+            }
+        </ol>
+    }@else {
+        <p><strong>No Friends As Of Now</strong></p>
+    }
+
+    <form (ngSubmit)="addFriend()">
+        <input type="text" name="tb" [(ngModel)]="frd" placeholder="New Friend Name" />
+        <button>ADD</button>
+    </form>
+</section>

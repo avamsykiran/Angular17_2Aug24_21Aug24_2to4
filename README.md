@@ -263,4 +263,5 @@ Angular 17
                                 navigateByUrl("/sales/dashboard");
 
         ActivatedRoute          is a built-in service sued to extract info like query params, path params ..etc., from the current path.
+    
         

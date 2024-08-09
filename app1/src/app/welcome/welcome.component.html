@@ -1,0 +1,31 @@
+<section class="welcomeBox">
+
+    <div>
+
+        <img [src]="ban[bI]" (click)="changeIndex()" [style.width.px]="bW" [ngClass]="bC"/>
+
+    </div>
+
+    <p> Hello <strong>{{userName}}!</strong> Hope you are doing good! </p>
+
+    <form>
+        <div>
+            <label for="tb1">Your Name Please: </label>
+            <input type="text" id="tb1" name="tb1" [(ngModel)]="userName" />
+        </div>
+        <div>
+            <label for="r1">Banner Width: <strong> {{bW}} px </strong> </label>
+            <input type="range" id="r1" name="r1" [(ngModel)]="bW" min="50" max="1000" />
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="c1" [(ngModel)]="bC.centered" /> Apply Centered Class
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="c2" [(ngModel)]="bC.bordered" /> Apply Bordered Class
+            </label>
+        </div>
+    </form>
+</section>
