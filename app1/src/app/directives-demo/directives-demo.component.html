@@ -1,0 +1,13 @@
+<section class="ddcBox">
+    <h3>Directive Demo</h3>
+
+    <p appHoverable> This is a sample para </p>
+    <div appHoverable="#ff0000"> This is a sample para </div>
+    <section appHoverable="#0000ff"> This is a sample para </section>
+    
+    <form [appHoverable]="color">
+        <label>Pick Color:
+            <input type="color" name="tb1" [(ngModel)]="color" />
+        </label>
+    </form>
+</section>

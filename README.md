@@ -264,4 +264,64 @@ Angular 17
 
         ActivatedRoute          is a built-in service sued to extract info like query params, path params ..etc., from the current path.
     
-        
+    Angular Directives
+
+        A directive is a angular defined html attribute.
+
+        ng g directive DirectiveName --skip-tests
+
+            @Directive({
+                selector:'[attributeName]'
+            })
+            export class DirectiveNameDirective {
+
+                constructor(private ele:ElementRef){
+
+                }
+            }
+
+            <tag attributeName> content </tag>
+            <tag attributeName="value"> content </tag>
+            <tag [attributeName]="expression"> content </tag>
+
+        Angular Injector can inject a reference to the element on which the directive is applied in the directive constructor
+        as an object of ElementRef
+
+        ElementREf from '@angular/common' is a class that represents html elements, the actual javascript object of
+        the html element is refered to by the nativeElement property of ElementRef.
+
+        @HostListner()    is used to map any host element event onto a method.
+
+        @Input()          is used to receive a value into the attribute
+
+    Angular Pipes
+
+        {{ expression | pipeName : 'args'}}
+
+        Pipes tranaform the value of a givne expression into something else.
+
+        built-in pipes
+
+            lowercase
+            uppercase
+            titlecase
+            number
+            currency
+            date
+            json
+            async
+
+        custom pipe
+
+            ng g pipe PipeName --skip-tests
+            
+            @Pipe({
+                name:'pipeName'
+            })
+            export class PipeNamePipe implements PipeTranform {
+
+                transform(value:any):any{
+                    //trnaform the value into any result
+                    return result;
+                }
+            }
