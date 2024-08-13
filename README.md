@@ -325,3 +325,19 @@ Angular 17
                     return result;
                 }
             }
+
+    Assignments
+    -----------------------------------------
+
+    1. create a custom directive called 'appToday' such that
+
+        <div appToday></div>                    -------->  the date must appear in side the div.
+        <div appToday="dd-MM-yyyy"></div>       -------->  the date must appear in side the div in the given format.
+        <div [appToday]="myFormat"></div>       -------->  the date must appear in side the div in the given format.
+
+    2. create a custom pipe called 'projection' such that
+
+        {{sellingPrice|projection}}      --------> render the projected COST PRICE, by assuming 18% as GST and 5% as profit
+
+
+

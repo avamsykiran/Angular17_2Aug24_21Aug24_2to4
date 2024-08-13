@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ToWordsPipe } from '../to-words.pipe';
 
 @Component({
   selector: 'app-pipes-demo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ToWordsPipe],
   templateUrl: './pipes-demo.component.html',
   styleUrl: './pipes-demo.component.css'
 })
