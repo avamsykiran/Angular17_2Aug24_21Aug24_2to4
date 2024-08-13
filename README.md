@@ -326,18 +326,107 @@ Angular 17
                 }
             }
 
-    Assignments
-    -----------------------------------------
 
-    1. create a custom directive called 'appToday' such that
+    Angular Services & Dependency Injection
 
-        <div appToday></div>                    -------->  the date must appear in side the div.
-        <div appToday="dd-MM-yyyy"></div>       -------->  the date must appear in side the div in the given format.
-        <div [appToday]="myFormat"></div>       -------->  the date must appear in side the div in the given format.
+        a service is a class that holds bussiness logic.
 
-    2. create a custom pipe called 'projection' such that
+        any computation or rest-api calls or other logical or arthimatic caliculations are written inside a service.
 
-        {{sellingPrice|projection}}      --------> render the projected COST PRICE, by assuming 18% as GST and 5% as profit
+        An object of a service is never created but is injected by angular through a constructor of an artifact (Component / Pipe/
+        directive or anotehr service)
 
+            ng g service ServiceName --skip-tets
 
+            @Injectable({
+                providedIn:'root'
+            })
+            export class ServiceNameService {
 
+            }
+
+        How many objects of a service are created ?    
+
+            Services are injected by 'injectors'.
+
+            In angular we have three levels of injectors
+                (a) root level injector             we will have only one such injector for the entire app
+
+                (b) module level injector           we will have one for each module
+                                                    'providers:[]' in the module meta-data is used to activate module level injector
+
+                (c) artifact level injector         we will have on for each artifact  
+                                                    'providers:[]' in the artifact meta-data is used to activate artifact level injector
+
+                    @Component({
+                        .....,
+                        providers:[ServiceName],
+                        .....,
+                    })
+                    export class ComponentName {
+                        constructor(private s:ServiceName){ //a new object of the service is created every time the component is loaded.
+
+                        }
+                    }
+
+                    @Component({
+                        .....,
+                        standalone:true
+                    })
+                    export class ComponentName1 {
+                        constructor(private s:ServiceName){ //the root level injector will inject the service object.
+                        }
+                    }
+
+                    @Component({
+                        .....,
+                        standalone:true
+                    })
+                    export class ComponentName2 {
+                        constructor(private s:ServiceName){ //the root level injector will inject the service object same as Component1
+                        }
+                    }
+
+    Models using TypeScript Interfaces
+
+        in typescript interfaces are used to create models.
+
+            ng g interface Employee
+
+            export interface Employee {
+                
+            }
+
+        typescript interface can accomidate public data memebrs and public abstract methods
+
+            export interface Employee {
+                id:number;
+                fullName:string;
+                dateOfJoining:Date;
+                salary:number;                
+            }
+
+        how do we crate an object to an interface
+
+            let emp:Employee = {id:1,fullName:"Vamsy",dateOfJoining:new Date(),salary:900000};
+
+    Angular Modules
+
+        a module is a logical group of components, pipes and directives.
+
+        an artifact (Components or a directive or a pipe) that does not belong to
+        any module is called a standalone artifact.
+
+        ng g module ModuleName
+
+        @NgModule({
+            declarations:[ /* list of all components,pipes and directive to be grouped under this module */ ],
+            exports:[ /*list of all components,pipes and directive of this module that are allowed to be imported outside*/ ],
+            imports:[ /*list of other moduels to be imported into this module */ ],
+            providers:[ /*list of services to be provided by this module level injector*/ ]
+        })
+        export class ModuleNameModule {
+
+        }
+
+        

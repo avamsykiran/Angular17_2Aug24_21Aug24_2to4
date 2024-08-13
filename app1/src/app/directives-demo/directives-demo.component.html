@@ -4,10 +4,21 @@
     <p appHoverable> This is a sample para </p>
     <div appHoverable="#ff0000"> This is a sample para </div>
     <section appHoverable="#0000ff"> This is a sample para </section>
-    
+
+    <p appToday></p>
+    <p appToday="dd-MM-yy"></p>
+    <p [appToday]="myformat"></p>
+
     <form [appHoverable]="color">
-        <label>Pick Color:
-            <input type="color" name="tb1" [(ngModel)]="color" />
-        </label>
+        <div>
+            <label>Pick Color:
+                <input type="color" name="tb1" [(ngModel)]="color" />
+            </label>
+        </div>
+        <div>
+            <label>Date Format:
+                <input type="text" name="tb2" [(ngModel)]="myformat" />
+            </label>
+        </div>
     </form>
 </section>
