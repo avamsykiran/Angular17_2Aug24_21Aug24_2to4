@@ -417,16 +417,29 @@ Angular 17
         an artifact (Components or a directive or a pipe) that does not belong to
         any module is called a standalone artifact.
 
-        ng g module ModuleName
+            ng g module ModuleName
 
-        @NgModule({
-            declarations:[ /* list of all components,pipes and directive to be grouped under this module */ ],
-            exports:[ /*list of all components,pipes and directive of this module that are allowed to be imported outside*/ ],
-            imports:[ /*list of other moduels to be imported into this module */ ],
-            providers:[ /*list of services to be provided by this module level injector*/ ]
-        })
-        export class ModuleNameModule {
+            @NgModule({
+                declarations:[ /* list of all components,pipes and directive to be grouped under this module */ ],
+                exports:[ /*list of all components,pipes and directive of this module that are allowed to be imported outside*/ ],
+                imports:[ /*list of other moduels to be imported into this module */ ],
+                providers:[ /*list of services to be provided by this module level injector*/ ]
+            })
+            export class ModuleNameModule {
 
-        }
+            }
 
-        
+        To add an artifact into a module while creating the artifact
+
+            ng g c sales/DashboardComponent --module sales.module --skip-tests
+            ng g directive sales/FastMovingStock --module sales.module --skip-tests
+            ng g pipe sales/CostInWords --module sales.module --skip-tests
+            
+    Integrating Bootstrap
+
+        npm i bootstrap
+
+        add the following into angular.json "styles" and "scripts" sections
+            node_modules/bootstrap/dist/css/bootstrap.min.css
+            node_modules/bootstrap/dist/js/bootstrap.min.js
+
