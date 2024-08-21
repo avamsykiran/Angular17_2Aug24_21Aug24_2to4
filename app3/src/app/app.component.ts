@@ -18,7 +18,7 @@ export class AppComponent {
   menus:{link:string,label:string}[];
 
   constructor(){
-    this.title="Address Book 1.0";
+    this.title="Address Book 2.0";
     
     this.menus=[
       {link:"contacts/list",label:"Contacts List"},

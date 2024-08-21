@@ -431,9 +431,9 @@ Angular 17
 
         To add an artifact into a module while creating the artifact
 
-            ng g c sales/DashboardComponent --module sales.module --skip-tests
-            ng g directive sales/FastMovingStock --module sales.module --skip-tests
-            ng g pipe sales/CostInWords --module sales.module --skip-tests
+            ng g c sales/DashboardComponent -m sales.module --skip-tests --standalone=false
+            ng g directive sales/FastMovingStock -m sales.module --skip-tests --standalone=false
+            ng g pipe sales/CostInWords -m sales.module --skip-tests --standalone=false
             
     Integrating Bootstrap
 
@@ -442,4 +442,35 @@ Angular 17
         add the following into angular.json "styles" and "scripts" sections
             node_modules/bootstrap/dist/css/bootstrap.min.css
             node_modules/bootstrap/dist/js/bootstrap.min.js
+
+    Lazy Loading
+
+        allows us to load a feature module / sub-module as and when requested
+        by a router.
+
+        the module will be laxy loaded along with its module level routes.
+
+    Template Driven Forms vs Model Driven Forms (Reactive Forms)
+
+        Template Driven Forms define the dom, structure and validations in the 
+        template itself, and are hard to test. 
+            
+            FormsModule from '@angular/forms'
+                ngForm
+                ngModel
+
+        These forms are recommeded only in a senario having not more then one or two controls.
+
+        Reactive Forms otherwise called model driven forms are structured and validation
+        logic is provided by a model in the controller class. Only
+        its dom is defiend in the template file.
+
+            ReactiveForms from '@angular/forms'
+                FormGroup
+                FormControl
+                formControlName
+
+        These forms are recommemded to handle 90% of all form requirments in an angualr app.
+        These forms are easier to test.
+
 

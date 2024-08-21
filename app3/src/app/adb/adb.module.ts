@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Routes,RouterModule } from '@angular/router';
 
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
@@ -18,7 +18,7 @@ const adbRoutes: Routes = [
     ContactsListComponent
   ],
   imports: [
-    CommonModule, FormsModule, RouterModule.forChild(adbRoutes)
+    CommonModule, ReactiveFormsModule, RouterModule.forChild(adbRoutes)
   ]
 })
 export class AdbModule { }
