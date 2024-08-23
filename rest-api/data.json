@@ -1,0 +1,32 @@
+{
+    "contacts": [
+        {
+            "id": 1,
+            "fullName": "Vamsy Kiran",
+            "mobile": "9052224753",
+            "mailId": "vamsy@gmail.com",
+            "dob": "1985-06-11"
+        },
+        {
+            "id": 2,
+            "fullName": "KGN Murthy",
+            "mobile": "9052224735",
+            "mailId": "murthy@gmail.com",
+            "dob": "1985-01-11"
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "job": "ReFuel Car",
+            "priority": "URGENT",
+            "status": "DONE"
+        },
+        {
+            "id": 2,
+            "job": "Buy Marrage Day Gift",
+            "priority": "URGENT",
+            "status": "PENDING"
+        }
+    ]
+}

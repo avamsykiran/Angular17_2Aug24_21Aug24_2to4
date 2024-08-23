@@ -473,4 +473,46 @@ Angular 17
         These forms are recommemded to handle 90% of all form requirments in an angualr app.
         These forms are easier to test.
 
+    Rest API Calls using HttpClient
 
+        HttpClient from HttpClientModule from '@angular/common/http'.
+
+        to enable HttpClient service injection:
+            (a) importProvidersFrom(httpClientModule) in app.config
+
+            (or)
+
+            (b) provideHttpClient() in app.config
+
+        HttpClient
+            get(url) : Observable
+            post(url,reqBody) : Observable
+            put(url,reqBody) : Observable
+            delete(url) : Observable
+
+        Observable from 'rxjs' allows us to ahndle the asynchronous rest-api call.
+
+        let ob = httpClient.get(url);
+
+        ob.subscribe({
+            next: result => { /*handle the result of the request */ },
+            error: err => { /*handle the error */ }
+        })
+
+    Create a fake rest-api using json-server
+
+        json-server is a javascript library that generates rest-api from a .json file
+
+        md rest-api
+        cd rest-api
+        npm init -y
+        npm i json-server@0.17.4
+
+        create a rest-api/data.json that shall contain the hypothetical data
+
+        in package.json, we create a script
+            "start":"json-server --port 9999 --watch ./data.json"
+
+        npm start
+
+    
