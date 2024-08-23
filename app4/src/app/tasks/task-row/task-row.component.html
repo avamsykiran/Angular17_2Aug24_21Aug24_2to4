@@ -1,0 +1,10 @@
+<div class="row border-bottom border-primary p-2">
+    <div class="col-1 text-end">{{task.id}}</div>
+    <div class="col">{{task.job}}</div>
+    <div class="col-2 text-center">{{task.priority}}</div>
+    <div class="col-2 text-center">{{task.status}}</div>
+    <div class="col-3 text-center">
+        <button class="btn btn-sm btn-secondary me-1" type="button" (click)="editTask(task.id)">EDIT</button>
+        <button class="btn btn-sm btn-danger" type="button" (click)="delTask(task.id)">DELETE</button>
+    </div>
+</div>    

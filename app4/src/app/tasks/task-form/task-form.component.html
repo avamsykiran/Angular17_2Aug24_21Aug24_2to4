@@ -1,0 +1,27 @@
+<form class="row border-bottom border-secondary p-2" [formGroup]="taskForm" (ngSubmit)="formSubmitted()">
+    <div class="col-1">
+        <input type="number" class="form-control" placeholder="id" readonly formControlName="id" />
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="JOB" formControlName="job"/>
+    </div>
+    <div class="col-2">
+        <select class="form-control" formControlName="priority">
+            <option value="">----SELECT----</option>
+            @for (opt of ['EMERGENCY','URGENT','NORMAL']; track $index) {
+                <option [value]="opt">{{opt}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-2">
+        <select class="form-control" formControlName="status">
+            @for (opt of ['PENDING','DONE']; track $index) {
+                <option [value]="opt">{{opt}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3 text-center">
+        <button class="btn btn-sm btn-primary me-1" [disabled]="taskForm.invalid">SAVE</button>
+        <button class="btn btn-sm btn-danger" type="button" (click)="cancelBtnClick()">CANCEL</button>
+    </div>
+</form>
