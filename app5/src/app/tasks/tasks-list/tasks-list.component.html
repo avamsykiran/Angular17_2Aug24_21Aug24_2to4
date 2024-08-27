@@ -1,0 +1,35 @@
+<section class="container-fluid p-2 col-sm-10 mx-auto">
+    <h4>Tasks List</h4>
+
+    @if(shallWait){
+        <div class="alert alert-info p-4 fw-bold">
+            Please wait while reaching out the server...!
+        </div>
+    }
+
+    @if(errMsg){
+        <div class="alert alert-danger p-4 fw-bold">
+            {{errMsg}}
+        </div>
+    }
+
+    <div class="row border-bottom border-danger p-2 fw-bold text-center">
+        <div class="col-1">Task Id</div>
+        <div class="col">Job</div>
+        <div class="col-2">Priority</div>
+        <div class="col-2">Status</div>
+        <div class="col-3">Actions</div>
+    </div>    
+
+    <app-task-form [saveTask]="addTask" ></app-task-form>
+
+    @if(tasks){
+        @for (task of tasks; track task.id) {
+            @if(task.isEditing){
+                <app-task-form [task]="task" [saveTask]="updateTask" [unEditTask]="unEditTask"></app-task-form>
+            }@else {
+                <app-task-row [task]="task" [delTask]="delTask" [editTask]="editTask"></app-task-row>
+            }
+        }    
+    }
+</section>

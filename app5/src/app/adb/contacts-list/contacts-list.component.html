@@ -1,0 +1,51 @@
+<section class="container-fluid p-2 col-sm-10 mx-auto">
+    <h4>Contacts List</h4>
+
+    @if(shallWait){
+        <div class="alert alert-info p-4 fw-bold">
+            Please wait while reaching out the server...!
+        </div>
+    }
+
+    @if(errMsg){
+        <div class="alert alert-danger p-4 fw-bold">
+            {{errMsg}}
+        </div>
+    }
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Contact#</th>
+                <th>Full Name</th>
+                <th>Mobile</th>
+                <th>Mail Id</th>
+                <th>Date Of Birth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(contacts){
+                @for (c of contacts; track c.id) {
+                    <tr>
+                        <td>{{c.id}}</td>
+                        <td>{{c.fullName}}</td>
+                        <td>{{c.mobile}}</td>
+                        <td>{{c.mailId}}</td>
+                        <td>{{c.dob}}</td>
+                        <td>
+                            <a class="btn btn-sm btn-secondary me-1" [routerLink]="['/contacts/edit',c.id]">EDIT</a>
+                            <button type="button" class="btn btn-sm btn-danger" (click)="delBtnClick(c.id)">DELETE</button>
+                        </td>
+                    </tr>
+                }@empty {
+                    <tr>
+                        <td colspan="6">
+                            <strong>No Records Found!</strong>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</section>

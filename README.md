@@ -515,4 +515,6 @@ Angular 17
 
         npm start
 
-    
+    To Generate Environment Files For External Config.,
+
+        ng g environments

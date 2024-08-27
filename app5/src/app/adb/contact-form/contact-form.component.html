@@ -1,0 +1,82 @@
+<section class="contaioner-fluid p-2 col-sm-5 mx-auto">
+
+    <h4> {{isNew?"New Contact":"Edit Contact#"+idFC.value}}</h4>
+
+    @if(shallWait){
+        <div class="alert alert-info p-4 fw-bold">
+            Please wait while reaching out the server...!
+        </div>
+    }
+
+    @if(errMsg){
+        <div class="alert alert-danger p-4 fw-bold">
+            {{errMsg}}
+        </div>
+    }
+
+    <form (ngSubmit)="formSubmitted()" [formGroup]="contactForm">
+        <div class="form-group">
+            <label class="form-label">Contact Id</label>
+            <input type="number" formControlName="id" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" formControlName="fullName" class="form-control" />
+            @if (fullNameFC.invalid && (fullNameFC.dirty || fullNameFC.touched)) {
+            <div class="alert alert-danger p-2">
+                @if(fullNameFC.errors!['required']){
+                <div>Full Name is a mandatory field.</div>
+                }
+                @if(fullNameFC.errors!['minlength']){
+                <div>Full Name must be atleast 5 letters in length.</div>
+                }
+                @if(fullNameFC.errors!['maxlength']){
+                <div>Full Name must be atmax 30 letters in length.</div>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-group">
+            <label class="form-label">Mobile</label>
+            <input type="text" formControlName="mobile" class="form-control" />
+            @if (mobileFC.invalid && (mobileFC.dirty || mobileFC.touched)) {
+            <div class="alert alert-danger p-2">
+                @if(mobileFC.errors!['required']){
+                <div>Mobile Number is a mandatory field.</div>
+                }
+                @if(mobileFC.errors!['pattern']){
+                <div>Mobile number is expected to be a 10 digit number.</div>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-group">
+            <label class="form-label">Mail Id</label>
+            <input type="text" formControlName="mailId" class="form-control" />
+            @if (mailIdFC.invalid && (mailIdFC.dirty || mailIdFC.touched)) {
+            <div class="alert alert-danger p-2">
+                @if(mailIdFC.errors!['required']){
+                <div>Mail Id is a mandatory field.</div>
+                }
+                @if(mailIdFC.errors!['email']){
+                <div>A valid email id please.</div>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-group">
+            <label class="form-label">Date Of Birth</label>
+            <input type="date" formControlName="dob" class="form-control" />
+            @if (dobFC.invalid && (mobileFC.dirty || dobFC.touched)) {
+            <div class="alert alert-danger p-2">
+                @if(dobFC.errors!['required']){
+                <div>Date Of Birth is a mandatory field.</div>
+                }
+            </div>
+            }
+        </div>
+        <div class="d-grid p-2">
+            <button class="btn btn-primary" [disabled]="contactForm.invalid">SAVE</button>
+        </div>
+    </form>
+</section>
